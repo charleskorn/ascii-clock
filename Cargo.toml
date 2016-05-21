@@ -1,0 +1,6 @@
+[package]
+name = "ascii-clock"
+version = "0.1.0"
+authors = ["Charles Korn <ckorn@thoughtworks.com>"]
+
+[dependencies]
