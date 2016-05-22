@@ -39,7 +39,7 @@ function check {
     exit 1
   fi
 
-  echo "Everything looks OK!"
+  echo "Rust found!"
   echo "Run \`./go.sh run <args>\` to run the application."
 }
 

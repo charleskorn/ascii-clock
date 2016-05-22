@@ -48,7 +48,7 @@ The May Shokunin challenge:
 
 ## Prerequisites
 
-* Rust 1.6.0
+* Rust 1.8.0
 
 Run `./go.sh check` to test that everything looks OK.
 
