@@ -22,20 +22,20 @@ J               D
     let minute_location = time.minute / 5;
 
     for location in 0..12 {
-        let mut replacement = "o";
+        let mut symbol = "o";
         let is_desired_hour_location = location == hour_location;
         let is_desired_minute_location = location == minute_location;
 
         if is_desired_hour_location && is_desired_minute_location {
-            replacement = "x";
+            symbol = "x";
         } else if is_desired_hour_location {
-            replacement = "h";
+            symbol = "h";
         } else if is_desired_minute_location {
-            replacement = "m";
+            symbol = "m";
         }
 
         let marker = char::from_u32('A' as u32 + location).unwrap();
-        clock = clock.replace(marker, replacement);
+        clock = clock.replace(marker, symbol);
     }
 
     return clock;
