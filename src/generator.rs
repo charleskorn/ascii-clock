@@ -1,9 +1,5 @@
 use std::char;
-
-pub struct Time {
-    hour: u32,
-    minute: u32
-}
+use time::Time;
 
 pub fn generate_clock(time: Time) -> String {
     let mut clock = r#"        A
@@ -44,7 +40,7 @@ J               D
 #[cfg(test)]
 mod test {
     use super::generate_clock;
-    use super::Time;
+    use time::Time;
 
     #[test]
     fn generate_clock_00_00() {
