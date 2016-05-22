@@ -1,2 +1,2 @@
-mod generator;
-mod time;
+pub mod generator;
+pub mod time;

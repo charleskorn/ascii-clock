@@ -5,7 +5,7 @@ pub struct Time {
 }
 
 impl Time {
-    pub fn parse(text: String) -> Option<Time> {
+    pub fn parse(text: &str) -> Option<Time> {
         let separator_index = text.find(':');
 
         if separator_index.is_none() {
@@ -39,66 +39,66 @@ mod test {
 
     #[test]
     fn parse_00_00() {
-        assert_eq!(Some(Time { hour: 0, minute: 0 }), Time::parse("00:00".to_string()));
+        assert_eq!(Some(Time { hour: 0, minute: 0 }), Time::parse("00:00"));
     }
 
     #[test]
     fn parse_12_00() {
-        assert_eq!(Some(Time { hour: 12, minute: 0 }), Time::parse("12:00".to_string()));
+        assert_eq!(Some(Time { hour: 12, minute: 0 }), Time::parse("12:00"));
     }
 
     #[test]
     fn parse_3_45() {
-        assert_eq!(Some(Time { hour: 3, minute: 45 }), Time::parse("3:45".to_string()));
+        assert_eq!(Some(Time { hour: 3, minute: 45 }), Time::parse("3:45"));
     }
 
     #[test]
     fn parse_03_45() {
-        assert_eq!(Some(Time { hour: 3, minute: 45 }), Time::parse("03:45".to_string()));
+        assert_eq!(Some(Time { hour: 3, minute: 45 }), Time::parse("03:45"));
     }
 
     #[test]
     fn parse_23_59() {
-        assert_eq!(Some(Time { hour: 23, minute: 59 }), Time::parse("23:59".to_string()));
+        assert_eq!(Some(Time { hour: 23, minute: 59 }), Time::parse("23:59"));
     }
 
     #[test]
     fn parse_no_hour() {
-        assert_eq!(None, Time::parse(":00".to_string()));
+        assert_eq!(None, Time::parse(":00"));
     }
 
     #[test]
     fn parse_no_minute() {
-        assert_eq!(None, Time::parse("12:".to_string()));
+        assert_eq!(None, Time::parse("12:"));
     }
 
     #[test]
     fn parse_colon() {
-        assert_eq!(None, Time::parse(":".to_string()));
+        assert_eq!(None, Time::parse(":"));
     }
 
     #[test]
     fn parse_empty_string() {
-        assert_eq!(None, Time::parse("".to_string()));
+        assert_eq!(None, Time::parse(""));
     }
 
     #[test]
     fn parse_03_60() {
-        assert_eq!(None, Time::parse("03:60".to_string()));
+        assert_eq!(None, Time::parse("03:60"));
     }
 
     #[test]
     fn parse_24_00() {
-        assert_eq!(None, Time::parse("24:00".to_string()));
+        assert_eq!(None, Time::parse("24:00"));
     }
 
     #[test]
     fn parse_12_34_56() {
-        assert_eq!(None, Time::parse("12:34:56".to_string()));
+        assert_eq!(None, Time::parse("12:34:56"));
     }
 
     #[test]
     fn parse_0a_0a() {
-        assert_eq!(None, Time::parse("0a:0a".to_string()));
+        assert_eq!(None, Time::parse("0a:0a"));
     }
 }
